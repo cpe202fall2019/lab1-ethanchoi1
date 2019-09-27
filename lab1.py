@@ -17,9 +17,8 @@ def max_list_iter(int_list):
             largest = int_list[i]
 
     return(largest)
+    
     pass
-
-
 
 #recursive function to reverse the contents of a list
 def reverse_rec(int_list):
@@ -52,7 +51,7 @@ def bin_search(target, low, high, int_list):
     elif (high == int((low+high)/2)):
         middle_index = high - 1
     else:
-        middle_index = int((low+high)/2)
+        middle_index = int(low+high)//2
     
     #if target is not in list, return None
     if(target not in int_list):

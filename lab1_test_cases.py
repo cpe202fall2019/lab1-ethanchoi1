@@ -39,6 +39,11 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):
             reverse_rec(tlist)
+            
+    #tests for empty list input
+    def test_reverse_rec_01(self):
+        self.assertEqual(reverse_rec([]),[])
+    
 #--------------------------------------------------------------------------
     #basic binary search test
     def test_bin_search_00(self):
@@ -88,13 +93,20 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(3, 0, len(list_val)-1, list_val), 1)
-            
+
     #1 length array
     def test_bin_search_07(self):
         list_val = [9]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), 0)
+        
+    #0 length array
+    def test_bin_search_08(self):
+        list_val = []
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), None)
     
 
 if __name__ == "__main__":
