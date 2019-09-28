@@ -4,6 +4,9 @@ def max_list_iter(int_list):
     #if the list is None, raises value error
     if(int_list == None):
         raise ValueError
+        
+    if(int_list == []):
+        return None
     
     #sets integer 'largest' as the value of the first item in the list
     largest = int_list[0]
@@ -43,6 +46,10 @@ def bin_search(target, low, high, int_list):
     if(int_list == None):
         raise ValueError
     
+    #if target is not in list, return None
+    if(target not in int_list):
+        return None
+        
     #for edge cases where infinite recursion caused by lists with short lengths
     if(len(int_list) == 1):
         return 0
@@ -53,13 +60,12 @@ def bin_search(target, low, high, int_list):
     else:
         middle_index = int(low+high)//2
     
-    #if target is not in list, return None
-    if(target not in int_list):
-        return None
+    #for case where target is at int_list[0]
+    if(int_list[0] == target):
+        return 0
     
-    #for edge case where length = 1
-    elif(middle_index < 0):
-        return middle_index + 1
+    elif(int_list[len(int_list)-1] == target):
+        return len(int_list)-1
         
     #return current middle_index of its value is target
     elif(int_list[middle_index] == target):

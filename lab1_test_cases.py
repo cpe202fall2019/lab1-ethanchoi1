@@ -25,6 +25,10 @@ class TestLab1(unittest.TestCase):
     #test when there are duplicate values
     def test_max_list_iter_03(self):
         self.assertEqual(max_list_iter([-1,0,5,9,9,10,7,7]),10)
+        
+    #test when list is empty
+    def test_max_list_iter_04(self):
+        self.assertEqual(max_list_iter([]),None)
 #--------------------------------------------------------------------------
     #basic list reversal test
     def test_reverse_rec_00(self):
@@ -107,6 +111,20 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), None)
+        
+    #target in first value of list
+    def test_bin_search_09(self):
+        list_val =[-10,-7,-6,-4,-2,-1,0,3,5,8,9,10]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(-10, 0, len(list_val)-1, list_val), 0)
+        
+    #target in last value of list
+    def test_bin_search_10(self):
+        list_val =[-10,-7,-6,-4,-2,-1,0,3,5,8,9,10]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), 11)
     
 
 if __name__ == "__main__":
